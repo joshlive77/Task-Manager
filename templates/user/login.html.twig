@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login de usuarios{% endblock %}
+
+{% block body %}  
+    <link rel="stylesheet" href="{{ asset('Assets/css/style.css') }}">
+
+    <div class="grid-x grid-padding-x align-center-middle" style="height: 80vh;">
+        <div class="cell large-6  grid-padding-x  grid-margin-x">
+            <h1>Proyecto</h1>
+            <h2>Symfony</h2>
+        </div>
+        <div class="cell large-6 ">
+            {% if error %}
+                <div class="grid-x grid-padding-x align-center-middle">
+                    {{ error.messagekey|trans(error.messageData, 'security') }}
+                </div>
+                <pre>
+                        {{ dump(error) }}
+                    </pre>
+            {% endif %}
+            
+            <form action="{{ path('login') }}" method="POST">
+                <div class="grid-container">
+                    <div class="grid-x grid-padding-x align-center-middle">
+                        <div class="large-8 cell">
+                            <label for="username">Email</label>
+                            <input type="email" placeholder="email@example.com" id="username" name="_username" value="{{ last_username }}">
+                        </div>
+                        <div class="large-8 cell">
+                            <label for="password">Contraseña</label>
+                            <input type="password" placeholder="********" id="password" name="_password">
+                        </div>
+                        <div class="large-8 cell">
+                            <input type="submit" class="button" value="Entrar">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+      
+{% endblock %}

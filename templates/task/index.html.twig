@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}todas las tareas{% endblock %}
+
+{% block body %}
+    <div class="grid-x grid-padding-x align-center-middle text-center" style="height: 20vh">
+        <h1>Lista de tareas</h1>
+    </div>
+    <div class="grid-x grid-padding-x align-center-middle text-center">
+        {{ include('includes/tasks-list.html.twig') }}
+    </div>
+{% endblock %}

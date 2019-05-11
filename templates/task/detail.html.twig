@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tarea{% endblock %}
+
+{% block body %}
+    <div class="grid-x grid-padding-x align-center-middle text-center" style="height: 20vh">
+        <h1>{{ task.title }}</h1>
+    </div>
+    <div class="grid-x grid-padding-x align-center-middle text-center">
+        <div class="large-10 cell">
+           <p>{{ task.content }}</p>
+        </div>
+        <div class="large-10 cell">
+           <p>{{ task.user.name }} {{ task.user.surname }} | {{ task.createdAt|date('d/m/Y h:i')}}</p>
+           <p>horas: {{ task.hours }}</p>
+        </div>
+    </div>
+{% endblock %}

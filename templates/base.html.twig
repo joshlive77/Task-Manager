@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('Assets/css/foundation.css') }}">
+            {# <link rel="stylesheet" href="{{ asset('Assets/css/style.css') }}"> #}
+            <link rel="stylesheet" href="{{ asset('Assets/css/style.scss') }}">
+            <link rel="stylesheet" href="{{ asset('Assets/css/app.css') }}">
+            
+        {% endblock %}
+    </head>
+    <body>
+        {% block header %}
+            <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+                <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+                <div class="title-bar-title">Menu</div>
+            </div>
+            
+            <div class="top-bar" id="responsive-menu">
+                <div class="top-bar-left">
+                    <ul class="menu" data-dropdown-menu>
+                    {% if app.user %}
+                        <li class="menu-text">Hola {{app.user.name}}!!!</li>
+                    {% else %}
+                        <li class="menu-text">Proyecto Symfony</li>
+                    {% endif %}
+                    </ul>
+                </div>
+                <div class="top-bar-right">
+                    <ul class="menu">
+                        {% if app.user %}
+                            <li><a href="{{ path('tasks') }}">Inicio</a></li>
+                            <li><a href="{{ path('my_tasks') }}">Mis Tareas</a></li>
+                            <li><a href="{{ path('task_creation') }}">Crear Tarea</a></li>
+                            <li><a href="{{ path('logout') }}">Cerrar cesion</a></li>
+                        {% else %}
+                            <li><a href="{{ path('login')}}">Login</a></li>
+                            <li><a href="{{ path('register') }}">Registro</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        {% endblock %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('Assets/js/vendor/jquery.js') }}"></script>
+            <script src="{{ asset('Assets/js/vendor/what-input.js') }}"></script>
+            <script src="{{ asset('Assets/js/vendor/foundation.js') }}"></script>
+            <script src="{{ asset('Assets/js/app.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

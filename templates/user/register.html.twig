@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro de usuarios{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x grid-padding-x grid-padding-y grid-margin-y">
+        <div class="large-8 cell large-offset-2 ">
+            <h1>Registro de usuarios</h1>
+            <hr>
+            {{form_start(form)}}
+                {{form_widget(form)}}
+            {{form_end(form)}}
+        </div>
+    </div>
+</div>
+{% endblock %}
